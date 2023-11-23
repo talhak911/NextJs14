@@ -1,11 +1,17 @@
 // import { Html } from 'next/document'
 // import Image from 'next/image';
+"use client"
 import React from 'react'
 import Link from 'next/link';
+
+
 export default function Home() {
+
+
   return (
+
   <body>
-   
+    
     <section className="header">
         <nav>
    
@@ -14,7 +20,12 @@ export default function Home() {
             </Link>
             <div className="nav-links" id="navLinks">
                 {/* <!-- Reposnive bar open and close --> */}
-                {/* <i className="fa fa-times" onClick={hideMenu}></i> */}
+                <i className="fa fa-times" onClick={()=>{
+                      var navLinks = document.getElementById("navLinks");
+                            if(navLinks)
+                          navLinks.style.right = "-200px";
+                      
+                }}></i>
                 <ul>
                     <li><Link href="./">Home</Link></li>
                     <li><Link href="./course">Course</Link></li>
@@ -23,7 +34,10 @@ export default function Home() {
                     <li><Link href="contact">Contact</Link></li>
                 </ul>
             </div>
-            {/* <i className="fa fa-bars" onClick={(navLinks.style.right = "0")}></i> */}
+            <i className="fa fa-bars" onClick={()=>{ var navLinks = document.getElementById("navLinks");
+
+if(navLinks)
+    navLinks.style.right = "0";}}></i>
             {/* <!-- Reposnive bar open and close --> */}
         </nav>
 
@@ -200,7 +214,9 @@ export default function Home() {
         <p>Made with <i className="fas fa-heart"></i> by <Link href="index.html">Sagar Developer</Link></p>
         <p>Copyright © 2021 <Link href="index.html">Xplore Skill</Link>. All Rights Reserved</p>
     </section>
+ 
     </body>
+
     );
     
 }

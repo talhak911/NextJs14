@@ -8,8 +8,8 @@ export default function(){
                 <i className="fab fa-staylinked"></i>kill
             </Link>
             <div className="nav-links" id="navLinks">
-                {/* <!-- reposnive bar open and close -->
-                <i className="fa fa-times" onclick="hideMenu()"></i> */}
+                {/* <!-- reposnive bar open and close --> */}
+                {/* <i className="fa fa-times" onclick="hideMenu()"></i> */}
                 <ul>
                 <li><Link href="../">Home</Link></li>
                     <li><Link href="./course">Course</Link></li>
@@ -87,7 +87,7 @@ export default function(){
             <i className="fab fa-linkedin"></i>
         </div>
         <p>Made with <i className="fas fa-heart"></i> by <Link href="#">Sagar Developer</Link></p>
-        <p>Copyright © 2021 <Link href="../">Xplore Skill</Link>. All Rights Reserved</p>
+        <p>Copyright © 2021 <Link href="../``">Xplore Skill</Link>. All Rights Reserved</p>
     </section>
     {/* <!-- Footer Section End --> */}
 
