@@ -1,46 +1,20 @@
 // import { Html } from 'next/document'
 // import Image from 'next/image';
-"use client"
+import { Component } from "react";
+import Navi from "./(component)/navigation/naviFile";
 import React from 'react'
 import Link from 'next/link';
 
 
-export default function Home() {
 
+export default function Home() {
 
   return (
 
   <body>
-    
-    <section className="header">
-        <nav>
    
-            <Link href="./" className="logo">Xplore
-                <i className="fab fa-staylinked"></i>kill
-            </Link>
-            <div className="nav-links" id="navLinks">
-                {/* <!-- Reposnive bar open and close --> */}
-                <i className="fa fa-times" onClick={()=>{
-                      var navLinks = document.getElementById("navLinks");
-                            if(navLinks)
-                          navLinks.style.right = "-200px";
-                      
-                }}></i>
-                <ul>
-                    <li><Link href="./">Home</Link></li>
-                    <li><Link href="./course">Course</Link></li>
-                    <li><Link href="./blog">Blog</Link></li>
-                    <li><Link href="./about">About</Link></li>
-                    <li><Link href="contact">Contact</Link></li>
-                </ul>
-            </div>
-            <i className="fa fa-bars" onClick={()=>{ var navLinks = document.getElementById("navLinks");
-
-if(navLinks)
-    navLinks.style.right = "0";}}></i>
-            {/* <!-- Reposnive bar open and close --> */}
-        </nav>
-
+    <section className="header">
+        <Navi/>
         <div className="text_box">
             <h2>GET READY</h2>
             <p id="headtext">TO DISCOVER CAMPUS</p>

@@ -1,26 +1,10 @@
 import Link from "next/link"
+import Navi from "../(component)/navigation/naviFile"
 export default function About(){
 return(
 <body>
     <section className="Sub-header">
-        <nav>
-            <Link href="./" className="logo">Xplore
-                <i className="fab fa-staylinked"></i>kill
-            </Link>
-            <div className="nav-links" id="navLinks">
-                {/* <!-- reposnive bar open and close --> */}
-                {/* <i className="fa fa-times" onclick="hideMenu()"></i> */}
-                <ul>
-                <li><Link href="./">Home</Link></li>
-                    <li><Link href="./course">Course</Link></li>
-                    <li><Link href="./blog">Blog</Link></li>
-                    <li><Link href="./about">About</Link></li>
-                    <li><Link href="contact">Contact</Link></li>
-                </ul>
-            </div>
-            {/* <i className="fa fa-bars" onclick="showMenu()"></i> */}
-            {/* <!-- reposnive bar open and close --> */}
-        </nav>
+      <Navi />
         <h1>About Us</h1>
     </section>
 
