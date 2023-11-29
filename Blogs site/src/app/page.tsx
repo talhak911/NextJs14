@@ -1,5 +1,6 @@
 // import { Html } from 'next/document'
 
+import Image from "next/image";
 import Link from "next/link";
 
 // import Image from 'next/image';
@@ -16,16 +17,17 @@ const blogPosts: Iblog[] = [
 
 export default function Home() {
   return(
-  
-  blogPosts.map((item)=> 
-  <h2>
+  <section className="blogBody">
+ { blogPosts.map((item)=> 
+  <h2 className="blogList">
     
     <Link href={`/posts/${item.id}`}>
-    Title:{item.title} <br/>
+      <Image src={`/img/${item.id}.jpg`} alt="Image " width={150} height={100}/><br />
+    {item.title} <br/>
     </Link>
   </h2>
-  )
-
+  )}
+  </section>
   );
 }
 

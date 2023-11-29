@@ -1,5 +1,6 @@
 // pages/app/[id].tsx
 "use client"
+import Image from "next/image";
 import React from "react";
 
 interface Iblog
@@ -18,12 +19,15 @@ const blogPosts: Iblog[] = [
 const Posts = ({ params}) => {
   if(blogPosts[params.id])
   return(
+<section >
 
-    <h3>
+<Image className={'imgCenter'} src={`/img/${params.id}.jpg`} alt="Image " height={200} width={300}/><br />
+    <h3 className="Desc">
       
       {
       blogPosts[params.id].desc}
     </h3>
+    </section>
   )
   else{
     return(<h3>No post found</h3>)
