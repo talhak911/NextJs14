@@ -21,7 +21,7 @@ const Posts = ({ params}) => {
   return(
 <section >
 
-<Image className={'imgCenter'} src={`/img/${params.id}.jpg`} alt="Image " height={200} width={300}/><br />
+<Image className={'imgCenter'} src={`/img/${params.id}.jpg`} alt="Image " height={350} width={550}/><br />
     <h3 className="Desc">
       
       {
