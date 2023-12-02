@@ -23,7 +23,9 @@
 }
 .blogBody {
 padding: auto;
+
 }
+
 .imgCenter  {
  
 
@@ -38,12 +40,14 @@ border-radius: 20px;
   text-align: center;
   line-height: 90px;
   background-color: antiquewhite;
-  border-radius: 40px;
+  border-radius: 30px;
   height: 90px;
 }
 .Desc {
   text-align: justify;
-  padding: 0% 20px;
+  padding: 0% 80px;
+  background-color:beige;
+  border-radius: 20px;
 }
 body{
   padding: 20px;
