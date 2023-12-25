@@ -1,7 +1,8 @@
 export default function ExpenseModal(props:expenseProps)
 {
-  
+    const categories:string[]=["Online payment","Bill pay","shoping","Groceries"];
     return(
+       
 <>
 {props.isOpen ===true ? <div className="float min-h-screen  py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -45,6 +46,47 @@ export default function ExpenseModal(props:expenseProps)
                           />
         
                     </div>
+                    <br />
+                    <div className="w-1/2 pr-2">
+                          <label htmlFor="date" className="block text-sm font-medium text-gray-700">
+                             Date
+                          </label>
+                          <input
+                              className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                              type="date"
+                              value={props.expenseObj.date}
+                              onChange={props.onChangeHandler}
+                              name="date"
+                        //      onChange={onChangeHandler}
+                          />
+        
+                    </div>
+                    <div className="w-1/2 pr-2">
+                          <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+                             Category
+                          </label>
+                          <select
+                              className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            
+                              value={props.expenseObj.category}
+                              onChange={props.onChangeHandler}
+                              name="category"
+                        //      onChange={onChangeHandler}
+                          >
+                              <option value="" disabled>Select a category</option>
+                            {categories.map((cat) => (
+                                <option key={cat} value={cat}>
+                                    {cat}
+                                </option>
+                            ))}
+                            </select>
+        
+                    </div>
+
+             
+
+
+
                   <div className="flex justify-between">
 
                       <button

@@ -1,4 +1,5 @@
 type expenseType = {
+    id:string,
     amount: number,
     date: string,
     note: string,

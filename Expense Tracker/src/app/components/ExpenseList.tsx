@@ -12,6 +12,7 @@ export default function ExpenseTracker() {
         setIsOpen(false)
     }
     const [expense, setExpense] = useState<expenseType>({
+        id:`${Date.now()}`,
         amount: 0,
         date: "",
         note: '',
@@ -26,6 +27,7 @@ export default function ExpenseTracker() {
     };
    const onSubmitHandler =()=>{
     setExpense({
+        id:'',
         amount: 0,
         date: "",
         note: '',
@@ -47,20 +49,43 @@ export default function ExpenseTracker() {
         <table className="mx-auto w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 bg-white shadow-md rounded-md">
            <thead className="bg-indigo-700 text-white">
              <tr>
+             <th className="py-2 px-4 text-center">ID</th>
                <th className="py-2 px-4 text-center">Amount</th>
                <th className="py-2 px-4 text-center">Note</th>
+               <th className="py-2 px-4 text-center">Date</th>
+               <th className="py-2 px-4 text-center">Category</th>
                
              </tr>
            </thead>
-           <tbody>
+         {expenses.length>0 ? <>
+          <tbody>
             {expenses.map((item, index) => (
               <tr key={index}>
-                <td className="py-2 px-4 text-center">{item.amount}</td>
+                <td className="py-2 px-4 text-center">{item.id}</td>
+                <td className="py-2 px-4 text-center">PKR {item.amount}</td>
                 <td className="py-2 px-4 text-center">{item.note}</td>
+                <td className="py-2 px-4 text-center">{item.date}</td>
+                <td className="py-2 px-4 text-center">{item.category}</td>
              
               </tr>
             ))}
           </tbody>
+          <thead className="bg-indigo-700 text-white">
+             <tr>
+               <th className="py-2 px-4 text-center">Total Amount</th>
+        
+               
+             </tr>
+           </thead>
+           <tbody>
+            
+              <tr>
+                <td className="py-2 px-4 text-center">Total amount</td>
+                
+             
+              </tr>
+        
+          </tbody></>: <h1> No data</h1>}
         </table>
 
     </>
