@@ -24,7 +24,7 @@ export default function ExpenseModal(props:expenseProps)
                           </label>
                           <input
                               className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                              type="text"
+                              type="number"
                               value={props.expenseObj.amount}
                     
                               name="amount"
@@ -82,21 +82,31 @@ export default function ExpenseModal(props:expenseProps)
                             </select>
         
                     </div>
+                    
 
              
 
 
 
                   <div className="flex justify-between">
+                  {props.expenseObj.id !=='' ?
+                            <button
+                            type="button"
+                                onClick={props.onUpdatehandle}
+                                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                            >
+                                update Expense
+                            </button>
 
+                            :
                       <button
                           // onClick={onClickHandler}
                           type="button"
                           className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                           onClick={props.onSubmithandle}
                       >
-                          Add
-                      </button>
+                          Add Expense
+                      </button>}
                   </div>
                   
 </div>
