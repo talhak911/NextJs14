@@ -2,8 +2,9 @@
 import { useState } from "react";
 import * as yup from "yup"
 import DisplayContact from "./expenseModal";
-import ExpenseModal from "./expenseModal";
 
+import ExpenseModal from "./expenseModal";
+import { IoAdd } from "react-icons/io5";
 export default function ExpenseTracker() {
 
     const [isOpen,setIsOpen]=useState(false)
@@ -40,6 +41,7 @@ export default function ExpenseTracker() {
       setTotal(total-exp.amount)
      }
      const onEditHandler =(exp:expenseType)=>{
+      setTotal(total-exp.amount)
       setExpense(exp)
       setIsOpen(true)
         
@@ -47,9 +49,13 @@ export default function ExpenseTracker() {
 
      }
      const onClickUpdate =()=>{
-    
-      setExpenses(expenses.map((e) => (e.id === expense.id ? expense : e)
+      
+      setExpenses(expenses.map((e) => {
+       if( e.id === expense.id) {
+        setTotal(total+expense.amount)
+        return expense} else {return e}}
         ));
+     
       setExpense({
         id:``,
         amount: 0,
@@ -83,8 +89,8 @@ export default function ExpenseTracker() {
     return (
     <>
     <h1 className="text-5xl text-center m-5">Expense Tracker</h1>
-    <button onClick={()=>setIsOpen(true)} className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 m-5 ">Add Expense +</button>
-        <ExpenseModal isOpen={isOpen} isClose={isClosed} expenseObj={expense}onChangeHandler={onChangeHandler } onSubmithandle={onSubmitHandler} onUpdatehandle={()=>onClickUpdate}/>
+    <button onClick={()=>setIsOpen(true)} className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 m-5 ">Add Expense <IoAdd /></button>
+        <ExpenseModal isOpen={isOpen} isClose={isClosed} expenseObj={expense}onChangeHandler={onChangeHandler } onSubmithandle={onSubmitHandler} onUpdatehandle={onClickUpdate}/>
 
 
 

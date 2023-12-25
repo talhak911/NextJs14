@@ -1,3 +1,4 @@
+import { VscChromeClose } from "react-icons/vsc";
 export default function ExpenseModal(props:expenseProps)
 {
     const categories:string[]=["Online payment","Bill pay","shoping","Groceries"];
@@ -8,7 +9,7 @@ export default function ExpenseModal(props:expenseProps)
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
           <div className="text-white relative px-4 py-10 bg-indigo-400 shadow-lg sm:rounded-3xl sm:p-100">
-          <button className="ml-30 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" onClick={props.isClose}>Close</button>
+          <button className="ml-30 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" onClick={props.isClose}>Close <VscChromeClose /></button>
               <div className="text-center pb-6">
                   <h1 className="text-3xl">Expense Add or update!</h1>
                   <p className="text-gray-300">
