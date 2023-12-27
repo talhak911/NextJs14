@@ -8,7 +8,10 @@ import { IoAdd } from "react-icons/io5";
 import BarChartWrapper from "./graph";
 export default function ExpenseTracker() {
 
-
+    const [catTotal,setCatTotal]=useState({
+      onlinepayment:0,billpay:0,shoping:0,groceries:0
+    })
+    
     const [isOpen,setIsOpen]=useState(false)
     // to close the modal
     const isClosed= ()=>{
@@ -20,6 +23,35 @@ export default function ExpenseTracker() {
         category: '',
       })
         setIsOpen(false)
+    }
+    const handleaAddCatTotal=()=>{
+      if(expense.category==="Online payment"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          onlinepayment: prevCatTotal.onlinepayment + expense.amount
+        }));
+      }
+      else if (expense.category==="Bill pay"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          billpay: prevCatTotal.billpay + expense.amount
+        }));
+        
+      }
+      else if (expense.category==="shoping"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          shoping: prevCatTotal.shoping + expense.amount
+        }));
+        
+      }
+      else if (expense.category==="Groceries"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          groceries: prevCatTotal.groceries + expense.amount
+        }));
+        
+      }
     }
     const [expense, setExpense] = useState<expenseType>({
         id:``,
@@ -39,11 +71,67 @@ export default function ExpenseTracker() {
         setExpense({ ...expense, [e.target.name]: e.target.value });}
     };
     const onDeleteHandler=(exp:expenseType)=>{
+      if(exp.category==="Online payment"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          onlinepayment: prevCatTotal.onlinepayment - exp.amount 
+        }));
+      }
+      else if (exp.category==="Bill pay"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          billpay: prevCatTotal.billpay - exp.amount
+        }));
+        
+      }
+      else if (exp.category==="shoping"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          shoping: prevCatTotal.shoping - exp.amount
+        }));
+        
+      }
+      else if (exp.category==="Groceries"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          groceries: prevCatTotal.groceries - exp.amount
+        }));
+        
+      }
       setExpenses(expenses.filter((item)=>item.id!==exp.id))
       setTotal(total-exp.amount)
      }
      const onEditHandler =(exp:expenseType)=>{
+      //updaing category total
       setTotal(total-exp.amount)
+      if(exp.category==="Online payment"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          onlinepayment: prevCatTotal.onlinepayment - exp.amount 
+        }));
+      }
+      else if (exp.category==="Bill pay"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          billpay: prevCatTotal.billpay - exp.amount
+        }));
+        
+      }
+      else if (exp.category==="shoping"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          shoping: prevCatTotal.shoping - exp.amount
+        }));
+        
+      }
+      else if (exp.category==="Groceries"){
+        setCatTotal(prevCatTotal => ({
+          ...prevCatTotal,
+          groceries: prevCatTotal.groceries + exp.amount
+        }));
+        
+      }
+      //update cat end
       setExpense(exp)
       setIsOpen(true)
         
@@ -51,7 +139,7 @@ export default function ExpenseTracker() {
 
      }
      const onClickUpdate =()=>{
-      
+      handleaAddCatTotal()
       setExpenses(expenses.map((e) => {
        if( e.id === expense.id) {
         setTotal(total+expense.amount)
@@ -68,6 +156,7 @@ export default function ExpenseTracker() {
       setIsOpen(false)
      }
    const onSubmitHandler =()=>{
+    handleaAddCatTotal()
     const submitExpense:expenseType={
       id:expense.id ||`${Date.now()}`,
       amount:expense.amount,
@@ -75,8 +164,12 @@ export default function ExpenseTracker() {
       note:expense.note,
       category:expense.category
   }
+  
     setExpenses([...expenses,submitExpense])
     setTotal(total+expense.amount)
+    //setting category total
+    
+    
     setExpense({
         id:'',
         amount: 0,
@@ -88,19 +181,23 @@ export default function ExpenseTracker() {
    setIsOpen(false)
    }
    const categories:string[]=["Online payment","Bill pay","shoping","Groceries"];
-   const barchartdata=categories.map((cat)=>{return{name:cat,amount:80}})
+   //const barchartdata=categories.map((cat)=>{return{name:cat,amount:80}})
    const data = [
     {
-      name: 'bill payment',
-      amount: 900,
+      name: 'Bill payment',
+      amount: catTotal.billpay,
     },
     {
       name: 'Online pay',
-      amount: 300,
+      amount: catTotal.onlinepayment,
     },
     {
-      name: 'shoping',
-      amount: 100,
+      name: 'Shoping',
+      amount: catTotal.shoping,
+    },
+    {
+      name: 'Groceries',
+      amount: catTotal.groceries,
     },
   ];
     return (
@@ -156,10 +253,14 @@ export default function ExpenseTracker() {
              
               </tr>
         
-          </tbody></>: <h1> No data</h1>}
+          </tbody></>:     <tr>
+      <td colSpan={6} className="text-center">
+        <h1>No data</h1>
+      </td>
+    </tr>}
         </table>
         <div style={{ width: '50%', height: '50vh' }}>
-  <BarChartWrapper data ={barchartdata}/>
+  <BarChartWrapper data ={data}/>
 </div>
 
               

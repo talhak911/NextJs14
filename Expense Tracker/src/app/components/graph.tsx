@@ -19,7 +19,7 @@ return(
       }}
       barSize={20}
     >
-      <XAxis dataKey="name" scale="point" padding={{ left: 100, right: 50 }} />
+      <XAxis dataKey="name" scale="point" padding={{ left: 50, right: 5 }} />
       <YAxis />
       <Tooltip />
       <Legend />
