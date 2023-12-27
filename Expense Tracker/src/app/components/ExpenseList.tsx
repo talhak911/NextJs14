@@ -201,8 +201,11 @@ export default function ExpenseTracker() {
     },
   ];
     return (
-    <>
+    <div>
     <h1 className="text-5xl text-center m-5">Expense Tracker</h1>
+    
+
+
     <button onClick={()=>setIsOpen(true)} className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 m-5 ">Add Expense <IoAdd /></button>
         <ExpenseModal isOpen={isOpen} isClose={isClosed} expenseObj={expense}onChangeHandler={onChangeHandler } onSubmithandle={onSubmitHandler} onUpdatehandle={onClickUpdate}/>
 
@@ -253,21 +256,32 @@ export default function ExpenseTracker() {
              
               </tr>
         
-          </tbody></>:     <tr>
+          </tbody></>:   <thead>  <tr>
       <td colSpan={6} className="text-center">
         <h1>No data</h1>
       </td>
-    </tr>}
+    </tr>  </thead>}
+   
         </table>
-        <div style={{ width: '50%', height: '50vh' }}>
-  <BarChartWrapper data ={data}/>
+        
+        <div className={`modal ${isOpen ? 'hidden' : 'block'} mt-5` }>
+  {!isOpen && 
+  <div style={{ width: '50%', height: '50vh' }}>
+  <BarChartWrapper data={data} />
+  </div>
+  }
 </div>
 
+
               
-    </>
+    </div>
 
      
 
     );
 };
+
+
+
+
 
