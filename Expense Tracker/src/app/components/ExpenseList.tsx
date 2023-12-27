@@ -5,7 +5,9 @@ import DisplayContact from "./expenseModal";
 
 import ExpenseModal from "./expenseModal";
 import { IoAdd } from "react-icons/io5";
+import BarChartWrapper from "./graph";
 export default function ExpenseTracker() {
+
 
     const [isOpen,setIsOpen]=useState(false)
     // to close the modal
@@ -85,7 +87,22 @@ export default function ExpenseTracker() {
     })
    setIsOpen(false)
    }
-
+   const categories:string[]=["Online payment","Bill pay","shoping","Groceries"];
+   const barchartdata=categories.map((cat)=>{return{name:cat,amount:80}})
+   const data = [
+    {
+      name: 'bill payment',
+      amount: 900,
+    },
+    {
+      name: 'Online pay',
+      amount: 300,
+    },
+    {
+      name: 'shoping',
+      amount: 100,
+    },
+  ];
     return (
     <>
     <h1 className="text-5xl text-center m-5">Expense Tracker</h1>
@@ -141,7 +158,11 @@ export default function ExpenseTracker() {
         
           </tbody></>: <h1> No data</h1>}
         </table>
+        <div style={{ width: '50%', height: '50vh' }}>
+  <BarChartWrapper data ={barchartdata}/>
+</div>
 
+              
     </>
 
      
