@@ -2,11 +2,18 @@ import BlogsList from "./components/blogsList";
 
 
 export default function Home(){
-  return(
-    <main className="flex flex-col items-center justify-center">
-      <h1>Hello blogs site</h1>
-  
-    <BlogsList/>
+  return (
+    <main className="bg-gray-100 min-h-screen p-8">
+      <header className="text-center">
+        <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
+          Welcome to Your Blog Site
+        </h1>
+        <p className="text-lg text-gray-600">
+          Explore and share your thoughts with the world.
+        </p>
+      </header>
+
+      <BlogsList />
     </main>
-  )
+  );
 }
