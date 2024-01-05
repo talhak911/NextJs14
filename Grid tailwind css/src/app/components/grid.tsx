@@ -1,39 +1,27 @@
 
-
-
+import Image from "next/image"
 export default function Grid() {
-    return (
-      <div className="p-3 bg-slate-500 gap-1">
-        <div className="grid grid-cols-3">
-          {/* First Element (2 columns, 2 rows) */}
-          <div className="col-span-2  border h-32 w-64">
-            {/* Replace the text with your image */}
-            <img src="your-image-url" alt="Image 1" className="h-full w-full object-cover" />
-          </div>
-          {/* Second Element (1 column, 2 rows) */}
-          <div className="row-span-2 border h-32 w-32">
-            {/* Replace the text with your image */}
-            <img src="your-image-url" alt="Image 2" className="h-full w-full object-cover" />
-          </div>
-          {/* Third Element (1 column, 2 rows) */}
-          <div className="row-span-2 border h-32 w-32">
-            {/* Replace the text with your image */}
-            <img src="your-image-url" alt="Image 3" className="h-full w-full object-cover" />
-          </div>
-          {/* Fourth Element (Centered) */}
-          <div className="col-span-3 flex items-center justify-center border h-32 w-96">
-            {/* Replace the text with your image */}
-            <img src="your-image-url" alt="Image 4" className="h-full w-full object-cover" />
-          </div>
-          {/* Fifth Element (2 columns) */}
-          <div className="col-span-2 border h-32 w-64">
-            {/* Replace the text with your image */}
-            <img src="your-image-url" alt="Image 5" className="h-full w-full object-cover" />
-          </div>
-        </div>
+  return (
+    <div className="grid lg:grid-cols-3 lg:grid-rows-3 gap-4 m-8 md:grid-cols-2 md:grid-rows-2 ">
+      <div className="bg-gray-400 col-span-2 rounded-lg border-2 border-black text-3xl font-sans text-center h-[350px] grid grid-cols-4">
+        <img 
+          className="  h-full"
+          src="https://mobisoftinfotech.com/resources/wp-content/uploads/2022/04/next-JS-framework.png"
+          alt="Image 1"
+        />
       </div>
-    );
-  };
-  
-
-
+      <div className="bg-gray-400 row-span-2 rounded-lg border-2 border-black text-3xl font-sans text-center h-[700px]">
+        2
+      </div>
+      <div className="bg-gray-400 row-span-2 col-span-1 rounded-lg border-2 border-black text-3xl font-sans text-center h-[700px]">
+        3
+      </div>
+      <div className="bg-gray-400 rounded-lg col-span-1 border-2 border-black text-3xl font-sans text-center h-[350px]">
+        4
+      </div>
+      <div className="bg-gray-400 rounded-lg border-2 col-span-2 border-black text-3xl font-sans text-center h-[350px]">
+        5
+      </div>
+    </div>
+  );
+};
