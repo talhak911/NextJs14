@@ -1,7 +1,8 @@
-import Image from "next/image";
+
 
 export default function Grid() {
   return (
+  
     <div className="bg-myred grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-4 m-8 sm:grid-cols-1 md:px-[250px]">
       <div className="sm:col-span-1 md:col-span-2 h-[150px]">
         <img
@@ -44,5 +45,5 @@ export default function Grid() {
         5
       </div>
     </div>
-  );
+    );
 }

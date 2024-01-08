@@ -1,7 +1,12 @@
 import Image from "next/image"
+import Link from "next/link"
 import myimg from "./../../../public/img1.jpg"
 export default function Hero(){
-    return(
+    return(<>
+        <Link className="button-56 m-5" href={"./"}  >
+        Home
+      </Link>
+        <div className="container1 p-5">
         <div className="h-screen grid md:grid-cols-3  items-center  ">
             <div className="md:col-span-2  bg-yellow-300 mx-5">
 <h1 className="text-5xl mx-5">Lorem ipsum dolor sit amet consectetur adipisicing eli.</h1>
@@ -15,5 +20,7 @@ export default function Hero(){
 </div>
 
         </div>
+        </div>
+        </>
     )
 }
