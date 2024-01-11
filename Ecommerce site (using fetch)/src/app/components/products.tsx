@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Link from 'next/link'
 const getProducts=async ()=>{
   try{
     const getProd = await axios.get('https://dummyjson.com/products')
@@ -15,12 +16,12 @@ export default async function Products() {
   return(
 
 
-products.products.map((item)=>{
+products.products.map((item:any)=>{
  return(
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <img className="p-8 rounded-t-lg" src="/docs/images/products/apple-watch.png" alt="product image" />
-    </a>
+    <Link href= {`../singleProduct/${item.id}`}>
+        <img className="p-8 rounded-t-lg h-[250px] w-[400px] object-cover" src={`${item.thumbnail}`} alt="product image" />
+    </Link>
     <div className="px-5 pb-5">
         <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.title}</h5>
