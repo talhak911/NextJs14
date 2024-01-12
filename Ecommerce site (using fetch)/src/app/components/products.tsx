@@ -15,17 +15,18 @@ export default async function Products() {
  
   return(
 
-
+<div className='flex flex-wrap justify-center gap-2' >{
 products.products.map((item:any)=>{
  return(
+
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link href= {`../singleProduct/${item.id}`}>
         <img className="p-8 rounded-t-lg h-[250px] w-[400px] object-cover" src={`${item.thumbnail}`} alt="product image" />
     </Link>
     <div className="px-5 pb-5">
-        <a href="#">
+    <Link href= {`../singleProduct/${item.id}`}>
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.title}</h5>
-        </a>
+        </Link>
         <div className="flex items-center mt-2.5 mb-5">
             <div className="flex items-center space-x-1 rtl:space-x-reverse">
                 <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
@@ -54,7 +55,8 @@ products.products.map((item:any)=>{
 </div>
 
  )
-})
+}
+)}</div>
   )
 
      
