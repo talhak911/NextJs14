@@ -7,17 +7,18 @@ import { useState } from "react";
 const Navbar = () => {
     const [nav,setNav]=useState(false);
     const handleNav=()=>{
-        setNav(true)
+        setNav(!nav)
     }
     return(
     <div className="fixed w-full h-20 shadow-xl z-[100]">
+    {/* Navbar */}
         <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
             <div className="mx-8">
 
                 <h2>Talha</h2>
             </div>
             <div>
-                <ul className="hidden md:flex">
+                <ul className="hidden md:flex md:mx-6">
                     <Link href='/' >
                         <li className="ml-10 text-sm uppercase hover:border-b-black">Home</li>
                     </Link>
@@ -34,21 +35,22 @@ const Navbar = () => {
                         <li className="ml-10 text-sm uppercase hover:border-b">Contact</li>
                     </Link>
                 </ul>
-                <div onClick={handleNav} className="md:hidden">
+                <div onClick={handleNav} className="md:hidden px-5 cursor-pointer">
                     <AiOutlineMenu size={25} />
                 </div>
             </div>
         </div>
-
-        <div className={nav ? 'fixed left-0 top-0 w-full h-screen bg-black/70':''}>
+        {/* Navbar end */}
+{/* Mobile Nav */}
+        <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70':''}>
             <div className={
                 nav? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
-                :"fixed left-[-100%] top-0 w-[75%] sm:w-[60%] md:[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+                :"fixed left-[-100%] top-0  p-10 ease-in duration-500"
             }>
                 <div>
                     <div className="flex items-center justify-between w-full ">
                         <h2>Talha</h2>
-                        <div onClick={()=>setNav(false)} className="rounded-full shadow-lg shadow-gray-300 p-3 cursor-pointer">
+                        <div onClick={handleNav} className="rounded-full shadow-lg shadow-gray-300 p-3 cursor-pointer">
                             <AiOutlineClose />
                         </div>
                     </div>
@@ -71,12 +73,12 @@ const Navbar = () => {
                         <li className='py-4 text-sm'>Projects</li>
                     </Link>
                     <Link href='/'>
-                        <li className='py-4 text-sm'>Contacts</li>
+                        <li className='py-4 text-sm'>Contact</li>
                     </Link>
                 </ul>
                 <div className="pt-10">
                 <p className="uppercase tracking-widest text-[#5651e5]">Let's Connect</p>
-                <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
+                <div className="flex items-center justify-between my-6 w-full sm:w-[80%]">
                    <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                    <FaLinkedinIn/>
                    </div>
@@ -96,6 +98,7 @@ const Navbar = () => {
             </div>
            
         </div>
+        {/* Mobile Nav End */}
     </div>
     )
 };
