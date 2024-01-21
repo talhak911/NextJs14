@@ -6,16 +6,16 @@ export default function Who(){
   <p className="uppercase text-xl tracking-widest text-[#5651e5]">About</p>
   <h2 className="py-4">Who I am</h2>
    <p>Welcome to my portfolio! I'm Talha, a Full Stack Web Developer specializing in React, Next.js, Tailwind CSS, and more.</p> 
-    <h2 className="py-2">Tech Stack</h2>
+    <h2 className="py-2 ">Tech Stack</h2>
     <ul className="py-2 text-gray-600">
         <li>
-       <h3 className="float-left px-2"> Frontend: </h3> <p className=""> React.js for dynamic user interfaces, Next.js for performance, and Tailwind CSS for styling.</p>
+       <h3 className="float-left  pr-2 "> Frontend: </h3> <p> React.js for dynamic user interfaces, Next.js for performance, and Tailwind CSS for styling.</p>
         </li>
         <li>
-       <h3 className="float-left px-2"> Backend: </h3><p className=""> Proficient in Node.js, Express, and various backend technologies.</p>
+       <h3 className="float-left pr-2"> Backend: </h3><p > Proficient in Node.js, Express, and various backend technologies.</p>
         </li>
         <li>
-       <h3 className="float-left px-2"> Backend: </h3><p className="">Skilled in MySQL, PostgreSQL, MongoDB, and database optimization.</p>
+       <h3 className="float-left pr-2"> Backend: </h3><p>Skilled in MySQL, PostgreSQL, MongoDB, and database optimization.</p>
         </li>
     </ul>
    
