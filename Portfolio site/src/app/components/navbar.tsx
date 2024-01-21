@@ -22,7 +22,7 @@ const Navbar = () => {
                     <Link href='/' >
                         <li className="ml-10 text-sm uppercase hover:border-b-black">Home</li>
                     </Link>
-                    <Link href='/' >
+                    <Link href='/./who.tsx' >
                         <li className="ml-10 text-sm uppercase hover:border-b">About</li>
                     </Link>
                     <Link href='/' >
